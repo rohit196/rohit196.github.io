@@ -1,32 +1,3 @@
-title: "Rohit's Personal Website"
-remote_theme: mmistakes/minimal-mistakes@4.24.0
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: dark
 
-# Site Settings
-locale: "en-US"
-title: "Rohit's Personal Website"
-subtitle: "Web Developer & Designer"
-name: "Rohit"
-description: "Personal portfolio and blog"
-url: "https://rohit196.github.io"
-repository: "rohit196/rohit196.github.io"
-
-# Site Author
-author:
-  name: "Rohit"
-  avatar: "/assets/images/bio-photo.jpg"
-  bio: "Web Developer with a passion for design"
-  location: "Somewhere, Earth"
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/rohit196"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/yourtwitterhandle"
-
-# Site Footer
-footer:
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/rohit196"
