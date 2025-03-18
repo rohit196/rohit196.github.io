@@ -1,0 +1,13 @@
+title: "Rohit's Personal Website"
+author: "Rohit"
+email: "your-email@example.com"
+description: >- 
+  Your personal website description here.
+baseurl: "" # Leave empty for username.github.io sites
+url: "https://rohit196.github.io" 
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
