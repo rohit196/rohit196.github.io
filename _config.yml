@@ -1,6 +1,5 @@
-# Example for Minimal Mistakes theme configuration
-remote_theme: mmistakes/minimal-mistakes
-minimal_mistakes_skin: "dark" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+title: "Rohit's Personal Website"
+remote_theme: mmistakes/minimal-mistakes@4.24.0
 
 # Site Settings
 locale: "en-US"
