@@ -1,13 +1,33 @@
-title: "Rohit's Personal Website"
-author: "Rohit"
-email: "your-email@example.com"
-description: >- 
-  Your personal website description here.
-baseurl: "" # Leave empty for username.github.io sites
-url: "https://rohit196.github.io" 
+# Example for Minimal Mistakes theme configuration
+remote_theme: mmistakes/minimal-mistakes
+minimal_mistakes_skin: "dark" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
-# Build settings
-theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+# Site Settings
+locale: "en-US"
+title: "Rohit's Personal Website"
+subtitle: "Web Developer & Designer"
+name: "Rohit"
+description: "Personal portfolio and blog"
+url: "https://rohit196.github.io"
+repository: "rohit196/rohit196.github.io"
+
+# Site Author
+author:
+  name: "Rohit"
+  avatar: "/assets/images/bio-photo.jpg"
+  bio: "Web Developer with a passion for design"
+  location: "Somewhere, Earth"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/rohit196"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/yourtwitterhandle"
+
+# Site Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/rohit196"
