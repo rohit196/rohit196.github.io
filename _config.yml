@@ -1,3 +1,17 @@
-theme: minimal-mistakes-jekyll
+remote_theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: dark
 
+#Add Necessary Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-archives
+  - jekyll-redirect-from
+  - jekyll-include-cache
+  - jekyll-optional-front-matter
+  - jekyll-default-layout
+  - jekyll-readme-index
+  - jekyll-toc
+  - jekyll-remote-theme
