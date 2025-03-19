@@ -1,1 +1,4 @@
-rohitkarmudi.xyz
+type: CNAME
+host: www.rohitkarmudi.xyz
+answer: rohit196.github.io
+TTL:300
