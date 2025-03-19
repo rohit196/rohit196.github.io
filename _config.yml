@@ -21,16 +21,16 @@ author:
   bio: "Research Analyst | Analytics Developer | AI Enthusiast | Blogger"
   location: "Toronto, Canada"
   email: "rohitkarmudi1996@gmail.com"
-links:
-  - label: "Email"
-    icon: "fas fa-fw fa-envelope-square"
-    url: "mailto:rohitkarmudi1996@gmail.com"
-  - label: "GitHub"
-    icon: "fab fa-fw fa-github"
-    url: "https://github.com/rohit196"  
-  - label: "LinkedIn"
-    icon: "fab fa-fw fa-linkedin"
-    url: "https://www.linkedin.com/in/rohit-karmudi/"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:rohitkarmudi1996@gmail.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/rohit196"  
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/rohit-karmudi/"
   
 #Site Footer
 footer:
