@@ -1,6 +1,51 @@
 remote_theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: dark
 
+#Site Settings 
+locale: "en-US"
+title: "Rohit Karmudi"
+subtitle: "Research Analyst | Analytics Developer | AI Enthusiast | Blogger"
+name: "Rohit Karmudi"
+description: "Trying to make sense of the world through data and life experiences."
+url: "https://rohit196.github.io"
+logo: "/assets/images/logo.png"
+search: true
+share: true
+comments: true
+social-share: true
+
+#Site Author
+author:
+  name: "Rohit Karmudi"
+  avatar: "/assets/images/avatar.jpg"
+  bio: "Research Analyst | Analytics Developer | AI Enthusiast | Blogger"
+  location: "Toronto, Canada"
+  email: "rohitkarmudi1996@gmail.com"
+links:
+  - label: "Email"
+    icon: "fas fa-fw fa-envelope-square"
+    url: "mailto:rohitkarmudi1996@gmail.com"
+  - label: "GitHub"
+    icon: "fab fa-fw fa-github"
+    url: "https://github.com/rohit196"  
+  - label: "LinkedIn"
+    icon: "fab fa-fw fa-linkedin"
+    url: "https://www.linkedin.com/in/rohit-karmudi/"
+  
+#Site Footer
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/rohit196"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/rohit-karmudi/"
+
+
+
+
+
 #Add Necessary Plugins
 plugins:
   - jekyll-feed
