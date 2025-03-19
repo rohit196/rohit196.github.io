@@ -1,0 +1,40 @@
+main:
+  - title: "About"
+    url: /about/
+    icon: "fas fa-user"
+  - title: "Resume"
+    url: /resume/
+    icon: "fas fa-file-alt"
+  - title: "Portfolio"
+    url: /portfolio/
+    icon: "fas fa-briefcase"
+    children:
+      - title: "Data Analysis"
+        url: /portfolio/data-analysis/
+      - title: "Machine Learning"
+        url: /portfolio/machine-learning/
+      - title: "API Development"
+        url: /portfolio/api-development/
+      - title: "Web Development"
+        url: /portfolio/web-development/
+  - title: "Blog"
+    url: /blog/
+    icon: "fas fa-blog"
+  - title: "Contact"
+    url: /contact/
+    icon: "fas fa-envelope-square"
+
+sidebar:
+  - title: "Portfolio Categories"
+    children:
+      - title: "Data Analysis"
+        url: /portfolio/data-analysis/
+      - title: "Machine Learning"
+        url: /portfolio/machine-learning/
+  
+  - title: "Blog Categories"
+    children:
+      - title: "Technology"
+        url: /categories/technology/
+      - title: "Data Science"
+        url: /categories/data-science/
