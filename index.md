@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: home
 title: "Rohit Karmudi"
 permalink: /
 classes:
@@ -10,70 +10,96 @@ header:
   overlay_filter: "0.5"
   overlay_image: /assets/images/header-bg.jpg
   actions:
-    - label: "Contact Me"
-      url: "/contact/"
+    - label: "Portfolio"
+      url: "/portfolio/"
 excerpt: "Research Analyst | Analytics Developer | AI Enthusiast | Blogger"
 ---
 
+## Welcome to My Personal Website
+
+I'm a research analyst and analytics developer specializing in transforming complex data into actionable insights. My expertise includes data analysis, machine learning, and building analytics solutions.
+
+## Areas of Expertise
+
+- **Data Analysis & Visualization**
+- **Machine Learning & AI Applications**
+- **Analytics Development**
+- **API & Web Development**
+
+## Recent Projects
+
+{% for post in site.portfolio limit:3 %}
+  {% include archive-single.html %}
+{% endfor %}
+
+[View All Projects](/portfolio/){: .btn .btn--primary}
+
+## Latest Blog Posts
+
+{% for post in site.posts limit:3 %}
+  {% include archive-single.html %}
+{% endfor %}
+
+[View All Posts](/blog/){: .btn .btn--primary}
+
+---
+layout: splash
+permalink: /
+header:
+  overlay_color: "#5e616c"
+  overlay_image: /assets/images/header-bg.jpg
+  actions:
+    - label: "View Portfolio"
+      url: "/portfolio/"
+excerpt: >
+  Research Analyst | Analytics Developer | AI Enthusiast | Blogger<br />
+  <small>Turning data into meaningful insights</small>
+feature_row:
+  - image_path: /assets/images/portfolio-thumb.jpg
+    alt: "Portfolio"
+    title: "Portfolio"
+    excerpt: "View my work across data analysis, machine learning, and web development projects."
+    url: "/portfolio/"
+    btn_label: "View Projects"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/blog-thumb.jpg
+    alt: "Blog"
+    title: "Blog"
+    excerpt: "Read my thoughts on data science, analytics, and technology trends."
+    url: "/blog/"
+    btn_label: "Read Posts"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/about-thumb.jpg
+    alt: "About"
+    title: "About Me"
+    excerpt: "Learn more about my background, skills, and professional experience."
+    url: "/about/"
+    btn_label: "Learn More"
+    btn_class: "btn--primary"
+---
+
+{% include feature_row %}
+
+## Professional Summary
+
+I'm a data professional with expertise in analytics and machine learning. I help organizations leverage data to make better decisions through advanced analytics and visualization.
+
+## Featured Projects
+
 <div class="grid__wrapper">
-  <!-- About Me Section -->
-  <div class="grid__item">
-    <div class="archive__item">
-      <div class="archive__item-body">
-        <h2 class="archive__item-title">About Me</h2>
-        <div class="archive__item-excerpt">
-          <p>I'm a data professional with expertise in analytics, machine learning, and data visualization. With a background in [your background], I specialize in turning complex data into actionable insights.</p>
-          <a href="/about/" class="btn btn--primary">More About Me</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Portfolio Section -->
-  <div class="grid__item">
-    <div class="archive__item">
-      <div class="archive__item-teaser">
-        <img src="/assets/images/portfolio-preview.jpg" alt="Portfolio">
-      </div>
-      <div class="archive__item-body">
-        <h2 class="archive__item-title">Portfolio</h2>
-        <div class="archive__item-excerpt">
-          <p>View a selection of my professional projects in data analysis, machine learning, and web development.</p>
-          <a href="/portfolio/" class="btn btn--primary">View Portfolio</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Blog Section -->
-  <div class="grid__item">
-    <div class="archive__item">
-      <div class="archive__item-teaser">
-        <img src="/assets/images/blog-preview.jpg" alt="Blog">
-      </div>
-      <div class="archive__item-body">
-        <h2 class="archive__item-title">Blog</h2>
-        <div class="archive__item-excerpt">
-          <p>Read my thoughts on data science, technology trends, and professional development.</p>
-          <a href="/blog/" class="btn btn--primary">Read Blog</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<h2>Featured Projects</h2>
-
-<div class="grid__wrapper">
-  {% for project in site.portfolio limit:3 %}
+  {% for post in site.portfolio limit:2 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
 
-<h2>Recent Posts</h2>
+<a href="/portfolio/" class="btn btn--primary">View All Projects</a>
+
+## Recent Posts
 
 <div class="grid__wrapper">
-  {% for post in site.posts limit:3 %}
+  {% for post in site.posts limit:2 %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
+
+<a href="/blog/" class="btn btn--primary">View All Posts</a>

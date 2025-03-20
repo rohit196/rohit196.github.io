@@ -9,10 +9,19 @@ name: "Rohit Karmudi"
 description: "Trying to make sense of the world through data and life experiences."
 url: "https://rohit196.github.io"
 logo: "/assets/images/logo.png"
+#Site Features
 search: true
+search_full_content: true
+search_provider: lunr
+lunr:
+  search_within_pages: true
 share: true
-comments: true
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: "rohitkarmudi"
 social-share: true
+featured_posts: true
 
 #Site Author
 author:
@@ -89,6 +98,9 @@ tag_archive:
   type: liquid
   path: /tags/
 
+#Pagination
+paginate: 5 #Number of posts per page
+paginate_path: "/page:num/" #Pagination path
 
 #Add Necessary Plugins
 plugins:
@@ -104,3 +116,9 @@ plugins:
   - jekyll-readme-index
   - jekyll-toc
   - jekyll-remote-theme
+
+#Additional settings
+markdown: kramdown
+highlighter : rouge
+future: true
+timezone: America/Toronto
