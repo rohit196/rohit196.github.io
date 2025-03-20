@@ -38,3 +38,16 @@ sidebar:
         url: /categories/technology/
       - title: "Data Science"
         url: /categories/data-science/
+        books:
+          - title: Technical Books
+            children:
+              - title: "Data Science"
+                url: /books/category/data-science/
+              - title: "Programming"
+                url: /books/category/programming/
+          - title: Business Books
+            children:
+              - title: "Leadership"
+                url: /books/category/leadership/
+              - title: "Strategy"
+                url: /books/category/strategy/

@@ -103,3 +103,13 @@ I'm a data professional with expertise in analytics and machine learning. I help
 </div>
 
 <a href="/blog/" class="btn btn--primary">View All Posts</a>
+
+## Recommended Books
+
+<div class="grid__wrapper">
+  {% for book in site.books limit:3 %}
+    {% include archive-single.html type="grid" %}
+  {% endfor %}
+</div>
+
+<a href="/books/" class="btn btn--primary">See All Books</a>
