@@ -1,0 +1,13 @@
+<div class="archive__item">
+    <div class="archive__item-teaser">
+      <img src="{{ post.header.teaser | default: '/assets/images/default-teaser.jpg' }}" alt="{{ post.title }}">
+      <span class="archive__item-date">{{ post.date | date: "%B %d, %Y" }}</span>
+    </div>
+    <div class="archive__item-body">
+      <h2 class="archive__item-title">{{ post.title }}</h2>
+      <div class="archive__item-excerpt">
+        {{ post.excerpt | markdownify }}
+      </div>
+      <p><a href="{{ post.url | relative_url }}" class="btn btn--primary">Read More</a></p>
+    </div>
+  </div>

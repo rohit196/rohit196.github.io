@@ -27,9 +27,8 @@ featured_posts: true
 author:
   name: "Rohit Karmudi"
   avatar: "/assets/images/avatar.jpg"
-  bio: "Research Analyst | Analytics Developer | AI Enthusiast | Blogger"
+  bio: "Research Analyst | Analytics Developer | AI Enthusiast | Part-time Philosopher"
   location: "Toronto, Canada"
-  email: "rohitkarmudi1996@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -50,6 +49,7 @@ footer:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/rohit-karmudi/"
+  custom: true
 
 
 #collections
@@ -90,8 +90,7 @@ defaults:
       layout: single
       author_profile: false
       share: true
-  #books
-
+  # _books (book items)
   - scope:
       path: ""
       type: books
@@ -134,3 +133,4 @@ markdown: kramdown
 highlighter : rouge
 future: true
 timezone: America/Toronto
+
