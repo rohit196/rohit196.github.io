@@ -1,0 +1,73 @@
+
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
+
+.book-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+  gap: 2em;
+  align-items: flex-start;
+}
+
+.book-cover {
+  flex: 0 0 auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.book-details {
+  flex: 1 1 auto;
+}
+
+.book-rating {
+  margin-top: 0.5em;
+  font-weight: bold; /* Added to emphasize the rating */
+}
+
+.img-small { max-width: 150px; }
+.img-medium { max-width: 250px; }
+.img-large { max-width: 350px; }
+.img-full { max-width: 100%; }
+
+.fa-star {
+  color: #ffc107; /* Star color */
+}
+
+.purchase-links {
+  margin-top: 1.5em;
+}
+
+.purchase-links a {
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  display: inline-block; /* Added to ensure proper display */
+}
+
+.key-takeaways, .recommendations {
+  margin: 2em 0;
+  padding: 1em;
+  background-color: rgba(128, 128, 128, 0.1); /* Subtle transparent background */
+  border-radius: 4px;
+  border: 1px solid rgba(128, 128, 128, 0.2); /* Subtle border */
+}
+
+.tag-list {
+  margin: 2em 0;
+}
+
+.book-tag {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  background-color: rgba(128, 128, 128, 0.15); /* Subtle transparent background */
+  border-radius: 3px;
+  font-size: 0.9em;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+.book-tag:hover {
+  background-color: rgba(128, 128, 128, 0.25);
+}
+

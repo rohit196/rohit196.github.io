@@ -1,0 +1,325 @@
+---
+layout: single
+---
+
+<article class="data-project">
+  <header class="project-header">
+    <div class="project-meta">
+      <span class="project-category"><i class="fas fa-folder"></i> {{ page.category }}</span>
+      <span class="project-date"><i class="fas fa-calendar-alt"></i> {{ page.date | date: "%B %Y" }}</span>
+      {% if page.github_repo %}
+      <a href="{{ page.github_repo }}" class="project-repo" target="_blank"><i class="fab fa-github"></i> View Code</a>
+      {% endif %}
+    </div>
+    
+    <div class="project-hero">
+      {% if page.header.overlay_image %}
+      <div class="project-image">
+        <img src="{{ page.header.overlay_image | relative_url }}" alt="{{ page.title }}">
+      </div>
+      {% endif %}
+      
+      <div class="project-summary">
+        <h1>{{ page.title }}</h1>
+        <p class="project-excerpt">{{ page.excerpt }}</p>
+        
+        <div class="tech-stack">
+          <h3>Technologies Used:</h3>
+          <div class="tech-tags">
+            {% for tech in page.technologies %}
+            <span class="tech-tag">{{ tech }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="project-content">
+    <div class="project-toc">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#problem">Problem Statement</a></li>
+        <li><a href="#approach">Approach & Methodology</a></li>
+        <li><a href="#analysis">Data Analysis</a></li>
+        <li><a href="#insights">Key Insights</a></li>
+        <li><a href="#implementation">Implementation</a></li>
+        <li><a href="#results">Results & Impact</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ol>
+    </div>
+    
+    <div id="problem" class="project-section">
+      <h2>Problem Statement</h2>
+      {{ page.problem_statement | markdownify }}
+    </div>
+    
+    <div id="approach" class="project-section">
+      <h2>Approach & Methodology</h2>
+      {{ page.approach | markdownify }}
+    </div>
+    
+    <div id="analysis" class="project-section">
+      <h2>Data Analysis</h2>
+      {{ page.data_analysis | markdownify }}
+      
+      {% if page.visualizations %}
+      <div class="visualization-gallery">
+        {% for viz in page.visualizations %}
+        <div class="viz-item">
+          <img src="{{ viz.image | relative_url }}" alt="{{ viz.caption }}">
+          <p class="viz-caption">{{ viz.caption }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    
+    <div id="insights" class="project-section">
+      <h2>Key Insights</h2>
+      <ul class="insights-list">
+        {% for insight in page.key_insights %}
+        <li>{{ insight }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+    <div id="implementation" class="project-section">
+      <h2>Implementation</h2>
+      {{ page.implementation | markdownify }}
+      
+      {% if page.code_snippet %}
+      <div class="code-snippet">
+        <div class="code-header">
+          <span>{{ page.code_snippet.language }}</span>
+        </div>
+        <pre><code class="language-{{ page.code_snippet.language }}">{{ page.code_snippet.code }}</code></pre>
+      </div>
+      {% endif %}
+    </div>
+    
+    <div id="results" class="project-section">
+      <h2>Results & Impact</h2>
+      {{ page.results | markdownify }}
+      
+      {% if page.metrics %}
+      <div class="metrics-container">
+        {% for metric in page.metrics %}
+        <div class="metric-card">
+          <div class="metric-value">{{ metric.value }}</div>
+          <div class="metric-name">{{ metric.name }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    
+    <div id="conclusion" class="project-section">
+      <h2>Conclusion</h2>
+      {{ content }}
+    </div>
+  </div>
+</article>
+
+<style>
+.data-project {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-header {
+  margin-bottom: 2em;
+}
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-bottom: 1em;
+  font-size: 0.9em;
+}
+
+.project-category, .project-date, .project-repo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.3em 0.8em;
+  background: #f8f9fa;
+  border-radius: 20px;
+  color: #495057;
+}
+
+.project-repo {
+  color: #2a76dd;
+  text-decoration: none;
+  
+  &:hover {
+    background: #e9ecef;
+  }
+}
+
+.project-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+  align-items: center;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tech-stack {
+  margin-top: 1.5em;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.tech-tag {
+  background: #e7f5ff;
+  color: #1971c2;
+  padding: 0.3em 0.8em;
+  border-radius: 20px;
+  font-size: 0.9em;
+}
+
+.project-content {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2em;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-toc {
+  position: sticky;
+  top: 2em;
+  align-self: start;
+  background: #f8f9fa;
+  padding: 1.5em;
+  border-radius: 8px;
+  
+  @media (max-width: 768px) {
+    position: static;
+    margin-bottom: 2em;
+  }
+  
+  ol {
+    margin: 0;
+    padding-left: 1.5em;
+  }
+  
+  li {
+    margin-bottom: 0.5em;
+  }
+  
+  a {
+    color: #495057;
+    text-decoration: none;
+    
+    &:hover {
+      color: #2a76dd;
+    }
+  }
+}
+
+.project-section {
+  margin-bottom: 3em;
+  
+  h2 {
+    color: #2a76dd;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #e9ecef;
+  }
+}
+
+.visualization-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5em;
+  margin: 2em 0;
+}
+
+.viz-item {
+  img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .viz-caption {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 0.5em;
+    color: #6c757d;
+  }
+}
+
+.insights-list li {
+  margin-bottom: 1em;
+}
+
+.code-snippet {
+  margin: 2em 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  
+  .code-header {
+    background: #343a40;
+    color: white;
+    padding: 0.5em 1em;
+    font-family: monospace;
+  }
+  
+  pre {
+    margin: 0;
+    padding: 1em;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    overflow-x: auto;
+  }
+}
+
+.metrics-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  margin: 2em 0;
+}
+
+.metric-card {
+  flex: 1;
+  min-width: 120px;
+  background: white;
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  
+  .metric-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: #2a76dd;
+    margin-bottom: 0.2em;
+  }
+  
+  .metric-name {
+    color: #6c757d;
+    font-size: 0.9em;
+  }
+}
+</style>

@@ -1,0 +1,194 @@
+<div class="case-studies-section">
+    <h2>Data Science Case Studies</h2>
+    <div class="case-studies-container">
+      <div class="case-study">
+        <div class="case-study-header">
+          <img src="/assets/images/case-study-1.jpg" alt="Predictive Analytics">
+          <div class="case-study-overlay">
+            <h3>Predictive Customer Churn Model</h3>
+            <p class="case-study-industry">Telecommunications</p>
+          </div>
+        </div>
+        <div class="case-study-content">
+          <p class="case-study-challenge">Reduced customer churn by 37% by implementing a machine learning model that identified at-risk customers.</p>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <span class="metric-value">93%</span>
+              <span class="metric-label">Prediction Accuracy</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">$2.4M</span>
+              <span class="metric-label">Annual Savings</span>
+            </div>
+          </div>
+          <a href="/portfolio/customer-churn/" class="case-study-link">View Case Study</a>
+        </div>
+      </div>
+      
+      <div class="case-study">
+        <div class="case-study-header">
+          <img src="/assets/images/case-study-2.jpg" alt="NLP Project">
+          <div class="case-study-overlay">
+            <h3>Sentiment Analysis Engine</h3>
+            <p class="case-study-industry">Retail & E-commerce</p>
+          </div>
+        </div>
+        <div class="case-study-content">
+          <p class="case-study-challenge">Developed a real-time sentiment analysis system to monitor customer feedback across social media and review platforms.</p>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <span class="metric-value">87%</span>
+              <span class="metric-label">Sentiment Accuracy</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">5x</span>
+              <span class="metric-label">Response Speed</span>
+            </div>
+          </div>
+          <a href="/portfolio/sentiment-analysis/" class="case-study-link">View Case Study</a>
+        </div>
+      </div>
+      
+      <div class="case-study">
+        <div class="case-study-header">
+          <img src="/assets/images/case-study-3.jpg" alt="Time Series Analysis">
+          <div class="case-study-overlay">
+            <h3>Sales Forecasting Model</h3>
+            <p class="case-study-industry">Manufacturing</p>
+          </div>
+        </div>
+        <div class="case-study-content">
+          <p class="case-study-challenge">Built a time series forecasting model that improved inventory management and reduced stockouts by 42%.</p>
+          <div class="case-study-metrics">
+            <div class="metric">
+              <span class="metric-value">19%</span>
+              <span class="metric-label">MAPE Improvement</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">12-mo</span>
+              <span class="metric-label">Forecast Horizon</span>
+            </div>
+          </div>
+          <a href="/portfolio/sales-forecasting/" class="case-study-link">View Case Study</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+  .case-studies-section {
+    margin: 3em 0;
+  }
+  
+  .case-studies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+  }
+  
+  .case-study {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      
+      .case-study-overlay {
+        background: rgba(0,0,0,0.7);
+      }
+    }
+  }
+  
+  .case-study-header {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+  
+  .case-study-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1em;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    transition: background 0.3s;
+    
+    h3 {
+      margin: 0 0 0.3em;
+      font-size: 1.2em;
+    }
+    
+    .case-study-industry {
+      margin: 0;
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+  }
+  
+  .case-study-content {
+    padding: 1.5em;
+    background: white;
+  }
+  
+  .case-study-challenge {
+    margin-top: 0;
+  }
+  
+  .case-study-metrics {
+    display: flex;
+    gap: 1em;
+    margin: 1.5em 0;
+  }
+  
+  .metric {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8em;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+    
+    .metric-value {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #2a76dd;
+    }
+    
+    .metric-label {
+      font-size: 0.8em;
+      color: #6c757d;
+    }
+  }
+  
+  .case-study-link {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background: #2a76dd;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s;
+    
+    &:hover {
+      background: #1a66cd;
+    }
+  }
+  </style>

@@ -20,6 +20,8 @@ main:
   - title: "Blog"
     url: /blog/
     icon: "fas fa-blog"
+  - title: "Books"
+    url: /books/
   - title: "Contact"
     url: /contact/
     icon: "fas fa-envelope-square"

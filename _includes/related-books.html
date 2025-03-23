@@ -1,0 +1,32 @@
+{% if site.books.size > 1 %}
+<div class="related-books">
+  <h2>Related Books You Might Enjoy</h2>
+  <div class="related-books-grid">
+    {% assign max_related = 3 %}
+    {% assign related_count = 0 %}
+    {% assign current_tags = page.tags %}
+    
+    {% for book in site.books %}
+      {% if book.url != page.url %}
+        {% assign same_tags = 0 %}
+        {% for tag in book.tags %}
+          {% if current_tags contains tag %}
+            {% assign same_tags = same_tags | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        
+        {% if same_tags > 0 and related_count < max_related %}
+          <div class="related-book">
+            <a href="{{ book.url | relative_url }}">
+              <img src="{{ book.cover_image | relative_url }}" alt="{{ book.title }}" class="related-book-cover">
+              <h3>{{ book.title }}</h3>
+              <p>{{ book.book_author }}</p>
+            </a>
+          </div>
+          {% assign related_count = related_count | plus: 1 %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

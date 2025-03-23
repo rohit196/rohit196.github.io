@@ -1,0 +1,357 @@
+
+---
+layout: single
+classes: 
+  - wide
+---
+<!--
+<div class="book-info">
+  <div class="book-cover">
+    <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title }}" 
+         class="img-{{ page.image_size | default: 'medium' }}">
+    
+    {% if page.rating %}
+    <div class="book-rating">
+      {% assign rating = page.rating | round %}
+      {% for i in (1..5) %}
+        <i class="fas fa-{{ i <= rating ? 'star' : 'star-o' }}"></i>
+      {% endfor %}
+      <span class="rating-text">{{ page.rating }}/5</span>
+    </div>
+    {% endif %}
+  </div>
+  
+  <div class="book-details">
+    <div class="book-meta">
+      {% if page.book_author %}<p><strong>Author:</strong> {{ page.book_author }}</p>{% endif %}
+      {% if page.category %}<p><strong>Category:</strong> {{ page.category }}</p>{% endif %}
+      {% if page.publication_year %}<p><strong>Published:</strong> {{ page.publication_year }}</p>{% endif %}
+      {% if page.publisher %}<p><strong>Publisher:</strong> {{ page.publisher }}</p>{% endif %}
+      {% if page.pages %}<p><strong>Pages:</strong> {{ page.pages }}</p>{% endif %}
+      {% if page.isbn %}<p><strong>ISBN:</strong> {{ page.isbn }}</p>{% endif %}
+    </div>
+    
+    {% if page.purchase_links.size > 0 %}
+    <div class="purchase-links">
+      {% for link in page.purchase_links %}
+        <a href="{{ link.url }}" class="btn btn--primary btn--small" target="_blank">
+          <i class="fas fa-shopping-cart"></i> {{ link.vendor }}
+        </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="book-content">
+  {{ content }}
+</div>
+
+{% if page.key_takeaways.size > 0 %}
+<div class="key-takeaways">
+  <h2>Key Takeaways</h2>
+  <ul>
+    {% for takeaway in page.key_takeaways %}
+      <li>{{ takeaway }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if page.recommended_for.size > 0 %}
+<div class="recommendations">
+  <h2>Recommended For</h2>
+  <ul>
+    {% for recommendation in page.recommended_for %}
+      <li>{{ recommendation }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if page.tags.size > 0 %}
+<div class="tag-list">
+  {% for tag in page.tags %}
+    <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="book-tag">{{ tag }}</a>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% include related-books.html %}
+-->
+ 
+
+
+
+<!-- 
+<div class="book-info">
+  <div class="book-cover">
+    <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title }}" 
+        class="img-{{ page.image_size | default: 'medium' }}">
+          </div>
+          
+          <div class="book-details">
+            <div class="book-meta">
+              {% if page.rating %}
+              <p>
+              <strong>Rating:</strong>
+              {% assign rating = page.rating | round %}
+              {% for i in (1..5) %}
+                {% if i <= rating %}
+                <i class="fas fa-star"></i>
+                {% else %}
+                <i class="far fa-star"></i>
+                {% endif %}
+              {% endfor %}
+              <span class="rating-text">{{ page.rating }}/5</span>
+              </p>
+              {% endif %}
+              {% if page.book_author %}<p><strong>Author:</strong> {{ page.book_author }}</p>{% endif %}
+              {% if page.category %}<p><strong>Category:</strong> {{ page.category }}</p>{% endif %}
+              {% if page.publication_year %}<p><strong>Published:</strong> {{ page.publication_year }}</p>{% endif %}
+              {% if page.publisher %}<p><strong>Publisher:</strong> {{ page.publisher }}</p>{% endif %}
+              {% if page.pages %}<p><strong>Pages:</strong> {{ page.pages }}</p>{% endif %}
+              {% if page.isbn %}<p><strong>ISBN:</strong> {{ page.isbn }}</p>{% endif %}
+            </div>
+    
+    {% if page.purchase_links.size > 0 %}
+    <div class="purchase-links">
+      {% for link in page.purchase_links %}
+        <a href="{{ link.url }}" class="btn btn--primary btn--small" target="_blank">
+          <i class="fas fa-shopping-cart"></i> {{ link.vendor }}
+        </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="book-content">
+  {{ content }}
+</div>
+
+{% if page.key_takeaways.size > 0 %}
+<div class="key-takeaways notice--info">
+  <h2>Key Takeaways</h2>
+  <ul>
+    {% for takeaway in page.key_takeaways %}
+      <li>{{ takeaway }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if page.recommended_for.size > 0 %}
+<div class="recommendations notice--success">
+  <h2>Recommended For</h2>
+  <ul>
+    {% for recommendation in page.recommended_for %}
+      <li>{{ recommendation }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if page.tags.size > 0 %}
+<div class="page__taxonomy">
+  <strong><i class="fas fa-tags"></i> {{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }} </strong>
+  <span itemprop="keywords">
+    {% for tag in page.tags %}
+      <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="page__taxonomy-item">{{ tag }}</a>{% unless forloop.last %}<span class="sep">, </span>{% endunless %}
+    {% endfor %}
+  </span>
+</div>
+{% endif %}
+
+<div class="page__related">
+  <h2 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h2>
+  {% include related-books.html %}
+</div>
+-->
+
+---
+layout: single
+classes:
+  - wide
+---
+
+<div class="page__content">
+  <div class="book__container">
+    <div class="book__header">
+      {% if page.cover_image %}
+      <div class="book__cover">
+        <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title }}" 
+             class="img-{{ page.image_size | default: 'medium' }}">
+      </div>
+      {% endif %}
+      
+      <div class="book__meta">
+        {% if page.rating %}
+        <div class="book__rating">
+          <p>
+          <strong>Rating:</strong>
+          {% assign rating = page.rating | round %}
+          {% for i in (1..5) %}
+            {% if i <= rating %}
+            <i class="fas fa-star" aria-hidden="true"></i>
+            {% else %}
+            <i class="far fa-star" aria-hidden="true"></i>
+            {% endif %}
+          {% endfor %}
+          <span class="rating-text">{{ page.rating }}/5</span>
+          </p>
+        </div>
+        {% endif %}
+        
+        <div class="book__details">
+          {% if page.book_author %}<p><strong>Author:</strong> {{ page.book_author }}</p>{% endif %}
+          {% if page.category %}<p><strong>Category/Genre:</strong> {{ page.category }}</p>{% endif %}
+          {% if page.publication_year %}<p><strong>Published:</strong> {{ page.publication_year }}</p>{% endif %}
+          {% if page.publisher %}<p><strong>Publisher:</strong> {{ page.publisher }}</p>{% endif %}
+          {% if page.pages %}<p><strong>Pages:</strong> {{ page.pages }}</p>{% endif %}
+          {% if page.isbn %}<p><strong>ISBN:</strong> {{ page.isbn }}</p>{% endif %}
+        </div>
+        
+        {% if page.purchase_links.size > 0 %}
+        <div class="book__purchase-links">
+          <p><strong>Where to Find It:</strong></p>
+          {% for link in page.purchase_links %}
+            <a href="{{ link.url }}" class="btn btn--primary btn--small" target="_blank" rel="nofollow noopener">
+              <i class="fas fa-shopping-cart" aria-hidden="true"></i> {{ link.vendor }}
+            </a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if page.excerpt %}
+    <div class="book__excerpt">
+      <p><em>{{ page.excerpt }}</em></p>
+      <hr>
+    </div>
+    {% endif %}
+
+    <div class="book__content">
+      {{ content }}
+    </div>
+
+    {% if page.key_takeaways.size > 0 %}
+    <div class="book__takeaways notice--info">
+      <h3><i class="fas fa-lightbulb" aria-hidden="true"></i> Key Takeaways</h3>
+      <ul>
+        {% for takeaway in page.key_takeaways %}
+          <li>{{ takeaway }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if page.favorite_quotes.size > 0 %}
+    <div class="book__quotes notice--primary">
+      <h3><i class="fas fa-quote-left" aria-hidden="true"></i> Favorite Quotes</h3>
+      {% for quote in page.favorite_quotes %}
+        <blockquote>{{ quote }}</blockquote>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if page.recommended_for.size > 0 %}
+    <div class="book__recommendations notice--success">
+      <h3><i class="fas fa-users" aria-hidden="true"></i> Why I Recommend It</h3>
+      <ul>
+        {% for recommendation in page.recommended_for %}
+          <li>{{ recommendation }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if page.tags.size > 0 %}
+    <div class="page__taxonomy">
+      <p>
+        <strong><i class="fas fa-tags" aria-hidden="true"></i> Tags:</strong> 
+        {% for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="page__taxonomy-item" rel="tag">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% if site.related_books_enabled %}
+<div class="page__related">
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  {% include related-books.html %}
+</div>
+{% endif %}
+
+<style>
+  /* Image sizes */
+  .img-small { max-width: 150px; }
+  .img-medium { max-width: 250px; }
+  .img-large { max-width: 350px; }
+  
+  /* Book layout - using Minimal Mistakes styling patterns */
+  .book__container {
+    margin-bottom: 2em;
+  }
+  
+  .book__header {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    gap: 2em;
+  }
+  
+  .book__cover {
+    flex: 0 0 auto;
+  }
+  
+  .book__meta {
+    flex: 1 1 250px;
+  }
+  
+  .book__rating .fa-star {
+    color: #ffc107;
+  }
+  
+  .book__purchase-links {
+    margin-top: 1.5em;
+  }
+  
+  .book__purchase-links a {
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+    display: inline-block;
+  }
+  
+  .book__content {
+    margin-bottom: 2em;
+  }
+  
+  .book__excerpt {
+    font-size: 1.1em;
+    margin-bottom: 1.5em;
+    color: #555;
+  }
+  
+  blockquote {
+    border-left: 4px solid #e9ecef;
+    padding-left: 1em;
+    font-style: italic;
+    margin: 1em 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .book__header {
+      flex-direction: column;
+    }
+    
+    .book__cover {
+      align-self: center;
+    }
+  }
+</style>

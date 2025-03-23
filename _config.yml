@@ -96,10 +96,11 @@ defaults:
       type: books
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       share: true
-      sidebar:
-        nav: "books"
+      read_time: false
+      related: true
+      toc: true
 
 # Archives
 category_archive:
