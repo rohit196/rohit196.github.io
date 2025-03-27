@@ -31,4 +31,19 @@ var store = [{
       },{
     "title": "About",
     "excerpt":"This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at jekyllrb.com   You can find the source code for Minima at GitHub: jekyll / minima   You can find the source code for Jekyll at GitHub: jekyll / jekyll   ","url": "http://localhost:4000/about/"
+  },{
+    "title": "About Me",
+    "excerpt":"Introduction   A brief introduction about yourself, your background, and what you do.   My Skills      Programming Languages: List languages you know   Technologies: List technologies, frameworks, etc.   Soft Skills: Communication, teamwork, etc.   Education      Degree, University Name, Year   Certification, Organization, Year   Experience   Company Name (Year - Year)  Position Title     Accomplishment 1   Accomplishment 2   Accomplishment 3   Previous Company (Year - Year)  Position Title     Accomplishment 1   Accomplishment 2  ","url": "http://localhost:4000/about/"
+  },{
+    "title": "Blog",
+    "excerpt":"Welcome to my blog where I share insights about data analysis, machine learning, and technology trends.  ","url": "http://localhost:4000/blog/"
+  },{
+    "title": "Contact Me",
+    "excerpt":"Get In Touch   I’m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.   Contact Information      Email: rohitkarmudi1996@gmail.com   LinkedIn: Rohit Karmudi   GitHub: rohit196   Location: Toronto, Canada   Contact Form           Name:                Email:                Subject:                Message:           Send Message  ","url": "http://localhost:4000/contact/"
+  },{
+    "title": "Data Science Books",
+    "excerpt":"Books about data science, analytics, and statistics.   ","url": "http://localhost:4000/books/category/data-science/"
+  },{
+    "title": "",
+    "excerpt":"  --- title: \"Book Recommendations & Reviews\" layout: collection permalink: /books/ collection: books entries_layout: grid classes: wide header:   overlay_color: \"#5e616c\"   overlay_image: /assets/images/books-header.jpg   caption: \"Photo credit: [**Unsplash**](https://unsplash.com)\" excerpt: \"Books that have shaped my thinking, improved my skills, and broadened my perspective.\" ---  ## My Reading Philosophy  I believe that books are one of the most powerful tools for personal and professional growth. Here, I share books that have significantly influenced my thinking and work in data analytics, machine learning, and beyond.  Each review includes my personal takeaways, who might benefit from reading it, and why I found it valuable. I hope these recommendations help you discover your next great read!  ## Categories     Data Science   Machine Learning   Programming   Business & Leadership   Philosophy   ## Currently Reading             \"Thinking in Systems: A Primer\" by Donella H. Meadows      I'm currently exploring how systems thinking can be applied to data science and complex problem-solving. Follow my reading notes for insights as I progress through this book.                       65% complete    ","url": "http://localhost:4000/_pages/books.html"
   }]

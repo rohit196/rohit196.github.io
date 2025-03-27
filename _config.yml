@@ -101,6 +101,17 @@ defaults:
       read_time: false
       related: true
       toc: true
+  # assets (custom CSS and JS files)
+  - scope:
+      path: "assets/css"
+      type: "assets"
+    values:
+      output: true
+  - scope:
+      path: "assets/js"
+      type: "assets"
+    values:
+      output: true
 
 # Archives
 category_archive:
@@ -134,4 +145,22 @@ markdown: kramdown
 highlighter : rouge
 future: true
 timezone: America/Toronto
+
+# Include custom CSS and JS files
+include:
+  - _pages
+  - assets
+  - assets/css
+  - assets/js
+
+# Ensure output of assets
+keep_files:
+  - assets
+  - assets/css
+  - assets/js
+
+# Sass/SCSS settings
+sass:
+  sass_dir: _sass
+  style: compressed
 
