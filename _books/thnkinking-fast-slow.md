@@ -3,7 +3,7 @@ title: "Thinking, Fast and Slow"
 excerpt: "Nobel Prize winner Daniel Kahneman's groundbreaking work on cognitive biases and decision-making processes."
 header:
   image: /assets/images/books/thinking-fast-slow-header.jpg
-  image_size: "medium"
+  image_size: "small"
   teaser: /assets/images/books/thinking-fast-slow-th.jpg
 sidebar:
   - title: "Author"
