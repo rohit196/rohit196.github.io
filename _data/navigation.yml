@@ -1,55 +1,13 @@
 main:
-  - title: "About"
-    url: /about/
-    icon: "fas fa-user"
-  - title: "Resume"
-    url: /resume/
-    icon: "fas fa-file-alt"
-  - title: "Portfolio"
-    url: /portfolio/
-    icon: "fas fa-briefcase"
-    children:
-      - title: "Data Analysis"
-        url: /portfolio/data-analysis/
-      - title: "Machine Learning"
-        url: /portfolio/machine-learning/
-      - title: "API Development"
-        url: /portfolio/api-development/
-      - title: "Web Development"
-        url: /portfolio/web-development/
+  - title: "Projects"
+    url: /#selected-projects
   - title: "Blog"
     url: /blog/
-    icon: "fas fa-blog"
   - title: "Books"
     url: /books/
+  - title: "GitHub"
+    url: https://github.com/rohit196
+  - title: "LinkedIn"
+    url: https://www.linkedin.com/in/rohit-karmudi/
   - title: "Contact"
-    url: /contact/
-    icon: "fas fa-envelope-square"
-
-sidebar:
-  - title: "Portfolio Categories"
-    children:
-      - title: "Data Analysis"
-        url: /portfolio/data-analysis/
-      - title: "Machine Learning"
-        url: /portfolio/machine-learning/
-  
-  - title: "Blog Categories"
-    children:
-      - title: "Technology"
-        url: /categories/technology/
-      - title: "Data Science"
-        url: /categories/data-science/
-        books:
-          - title: Technical Books
-            children:
-              - title: "Data Science"
-                url: /books/category/data-science/
-              - title: "Programming"
-                url: /books/category/programming/
-          - title: Business Books
-            children:
-              - title: "Leadership"
-                url: /books/category/leadership/
-              - title: "Strategy"
-                url: /books/category/strategy/
+    url: /#contact
