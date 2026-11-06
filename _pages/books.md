@@ -1,5 +1,3 @@
-
-
 ---
 title: "Book Recommendations & Reviews"
 layout: collection

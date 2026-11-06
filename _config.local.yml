@@ -1,0 +1,26 @@
+# Load after _config.yml. Use the installed theme without downloading it on each build.
+remote_theme: false
+theme: minimal-mistakes-jekyll
+url: "http://127.0.0.1:4000"
+baseurl: ""
+host: "127.0.0.1"
+port: 4000
+
+# Keep preview output separate from the repository's existing generated files.
+destination: .preview
+keep_files: []
+
+# Jekyll 3 replaces its default exclusions when this list is supplied.
+exclude:
+  - .bundle
+  - .preview
+  - .jekyll-cache
+  - .sass-cache
+  - .vscode
+  - vendor
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - _config.local.yml
+  - about.markdown

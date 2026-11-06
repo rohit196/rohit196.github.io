@@ -52,6 +52,7 @@ GEM
     ffi (1.17.1-arm-linux-gnu)
     ffi (1.17.1-arm-linux-musl)
     ffi (1.17.1-arm64-darwin)
+    ffi (1.17.1-x64-mingw-ucrt)
     ffi (1.17.1-x86-linux-gnu)
     ffi (1.17.1-x86-linux-musl)
     ffi (1.17.1-x86_64-darwin)
@@ -132,6 +133,8 @@ GEM
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
       webrick (>= 1.0)
+    jekyll-archives (2.3.0)
+      jekyll (>= 3.6, < 5.0)
     jekyll-avatar (0.8.0)
       jekyll (>= 3.0, < 5.0)
     jekyll-coffeescript (1.2.2)
@@ -221,6 +224,9 @@ GEM
       jekyll-seo-tag (~> 2.0)
     jekyll-titles-from-headings (0.5.3)
       jekyll (>= 3.3, < 5.0)
+    jekyll-toc (0.19.0)
+      jekyll (>= 3.9)
+      nokogiri (~> 1.12)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     jemoji (0.13.0)
@@ -266,6 +272,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.4-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.18.4-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.18.4-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.18.4-x86_64-linux-gnu)
@@ -302,6 +310,8 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2026.6)
+      tzinfo (>= 1.0.0)
     unicode-display_width (1.8.0)
     uri (1.0.3)
     webrick (1.9.1)
@@ -321,6 +331,7 @@ PLATFORMS
   riscv64-linux-gnu
   riscv64-linux-musl
   ruby
+  x64-mingw-ucrt
   x86-linux
   x86-linux-gnu
   x86-linux-musl
@@ -330,11 +341,13 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  github-pages
-  jekyll
+  github-pages (= 232)
+  jekyll-archives
   jekyll-include-cache
   jekyll-remote-theme
-  minimal-mistakes-jekyll
+  jekyll-toc
+  minimal-mistakes-jekyll (= 4.26.2)
+  tzinfo-data
 
 BUNDLED WITH
    2.6.6

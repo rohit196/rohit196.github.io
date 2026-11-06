@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview portfolio",
+      "type": "shell",
+      "command": "bundle",
+      "args": [
+        "exec",
+        "jekyll",
+        "serve",
+        "--config",
+        "_config.yml,_config.local.yml",
+        "--livereload",
+        "--force_polling"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ]
+}
