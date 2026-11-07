@@ -32,6 +32,11 @@ by Git. Existing tracked `_site/` files are left as they are.
 
 ## Reviewing changes
 
+Homepage text, tools, and project links are editable in the YAML at the top of
+`index.md`. Its page structure is in `_layouts/portfolio-home.html`, and its
+responsive styling is in `assets/css/portfolio.css`. Blog and Books keep their
+existing theme layouts while the homepage design is reviewed.
+
 Use VS Code's Source Control view (Ctrl+Shift+G) to inspect saved edits before
 committing. Work on `portfolio-cleanup` while the redesign is in progress.
 The preview command serves only your computer; it does not publish the website.
