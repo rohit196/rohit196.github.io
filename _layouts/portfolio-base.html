@@ -34,7 +34,7 @@
             {% assign current_link = false %}
             {% if page.section == 'blog' and link.title == 'Blog' %}{% assign current_link = true %}{% endif %}
             {% if page.section == 'books' and link.title == 'Books' %}{% assign current_link = true %}{% endif %}
-            <a class="{% if link.title == 'Contact' %}nav-contact {% endif %}{% if current_link %}nav-current{% endif %}"{% if current_link %} aria-current="page"{% endif %} href="{% if first_character == '/' %}{{ link.url | relative_url }}{% else %}{{ link.url }}{% endif %}">{{ link.title | escape }}</a>
+            <a class="{% if link.title == 'Contact' %}nav-contact {% endif %}{% if current_link %}nav-current{% endif %}"{% if current_link %} aria-current="page"{% endif %}{% if link.format == 'pdf' %} type="application/pdf" aria-label="{{ link.title | escape }} (PDF)"{% endif %} href="{% if first_character == '/' %}{{ link.url | relative_url }}{% else %}{{ link.url }}{% endif %}">{{ link.title | escape }}</a>
           {% endfor %}
         </nav>
       </div>

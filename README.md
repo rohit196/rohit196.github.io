@@ -38,6 +38,13 @@ responsive styling is in `assets/css/portfolio.css`. All three pages share
 `_layouts/portfolio-base.html`. Blog, Books, and reading notes use
 `assets/css/reading.css` for their page-specific layouts.
 
+## Updating the résumé
+
+The menu opens `assets/files/Rohit-Karmudi-Resume.pdf` in the browser, and the
+homepage's **Download résumé (PDF)** link downloads the same file. The supplied
+PDF is stored unchanged under this stable filename. To update it later, replace
+that PDF and keep its filename; both links will continue to work.
+
 ## Adding books and articles
 
 Copy `_templates/book.md` into `_books/your-book-title.md`. Keep the file's

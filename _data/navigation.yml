@@ -1,6 +1,9 @@
 main:
   - title: "Projects"
     url: /#selected-projects
+  - title: "Résumé"
+    url: /assets/files/Rohit-Karmudi-Resume.pdf
+    format: pdf
   - title: "Blog"
     url: /blog/
   - title: "Books"
