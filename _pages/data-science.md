@@ -1,10 +1,7 @@
 ---
 title: "Data Science Books"
-layout: category
+layout: null
 permalink: /books/category/data-science/
-taxonomy: "Data Science"
-entries_layout: grid
+redirect_to: /books/
+sitemap: false
 ---
-
-Books about data science, analytics, and statistics.
-

@@ -104,6 +104,14 @@ h1 span { color: #76797f; }
 .site-footer p { margin: 0; }
 .site-footer a:hover { color: var(--blue); }
 .site-footer a span { margin-left: 8px; }
+.footer-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px 20px; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+.content-page { max-width: 760px; padding-block: 64px 80px; }
+.content-page h1 { font-size: clamp(36px, 5vw, 52px); }
+.content-prose { color: var(--muted); overflow-wrap: anywhere; }
+.content-prose h2 { margin-top: 32px; color: var(--ink); font-size: 24px; letter-spacing: -.5px; }
+.content-prose a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+.content-prose li { margin-block: 10px; }
 @media (max-width: 1000px) {
   .site-nav { gap: 19px; }
   .hero { gap: 38px; padding-block: 75px; }
@@ -167,7 +175,9 @@ h1 span { color: #76797f; }
   .contact-section h2 { font-size: 39px; }
   .contact-email { font-size: 16px; }
   .contact-email span { padding-left: 7px; }
-  .site-footer { padding-block: 21px; font-size: 10px; gap: 15px; }
+  .site-footer { padding-block: 21px; font-size: 10px; flex-direction: column; gap: 4px; }
+  .footer-links { justify-content: flex-start; }
+  .content-page { padding-block: 40px 52px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

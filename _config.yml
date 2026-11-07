@@ -6,9 +6,14 @@ locale: "en-US"
 title: "Rohit Karmudi"
 subtitle: "Research Analyst | Analytics Developer | AI Enthusiast | Part-time Philosopher"
 name: "Rohit Karmudi"
-description: "Sharing my experience and insights through analytics. (My statistical models predict my comedy career has a low probability of success.)"
+description: "Python, SQL and text analytics projects by Rohit Karmudi, based in Toronto. Explore practical tools, articles and reading notes."
 url: "https://rohit196.github.io"
 logo: "/assets/images/logo.png"
+# Add only the content value supplied by each search engine after creating a property.
+# Blank values do not publish verification tags.
+webmaster_verifications:
+  google: ""
+  bing: ""
 #Site Features
 search: true
 search_full_content: true

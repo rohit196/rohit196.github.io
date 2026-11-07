@@ -2,6 +2,6 @@
 title: "Blog"
 layout: portfolio-blog
 section: blog
-description: "Welcome to my blog where I share insights about data analysis, machine learning, and technology trends."
+description: "Articles and notes by Rohit Karmudi on Python, data analysis and practical projects."
 permalink: /blog/
 ---

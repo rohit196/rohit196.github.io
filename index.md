@@ -1,8 +1,9 @@
 ---
 layout: portfolio-home
 title: "Rohit Karmudi"
+seo_title: "Rohit Karmudi | Python, SQL & Analytics Projects"
 permalink: /
-description: "Selected analytics projects and practical tools by Rohit Karmudi."
+description: "Python, SQL and text analytics projects by Rohit Karmudi, based in Toronto. Explore practical tools, articles and reading notes."
 hero:
   eyebrow: "Python / SQL / Text analytics"
   heading: "Exploring data."

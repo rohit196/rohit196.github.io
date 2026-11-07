@@ -24,4 +24,3 @@ exclude:
   - Gemfile.lock
   - README.md
   - _config.local.yml
-  - about.markdown

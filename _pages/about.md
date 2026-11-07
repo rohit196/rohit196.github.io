@@ -1,37 +1,19 @@
 ---
-title: "About Me"
+title: "About"
 permalink: /about/
-layout: single
-author_profile: true
-toc: true
-toc_label: "On this page"
-toc_icon: "cog"
+layout: portfolio-page
+description: "About Rohit Karmudi: Python, SQL, text analytics and practical tools, based in Toronto, Canada."
 ---
 
-## Introduction
+I'm Rohit Karmudi, based in Toronto, Canada. I work with Python, SQL and text analytics to explore data and build practical tools.
 
-A brief introduction about yourself, your background, and what you do.
+My selected projects include comparing sentiment classifications on hotel reviews and turning exported reading highlights into Word documents. I also keep SQL learning notes and experiments.
 
-## My Skills
+## Explore my work
 
-- **Programming Languages**: List languages you know
-- **Technologies**: List technologies, frameworks, etc.
-- **Soft Skills**: Communication, teamwork, etc.
+- [Selected projects]({{ '/#projects' | relative_url }}) — Python notebooks, text analytics and practical automation.
+- [Blog]({{ '/blog/' | relative_url }}) — articles and notes about data analysis.
+- [Books]({{ '/books/' | relative_url }}) — reading notes and ideas worth remembering.
+- [Résumé (PDF)]({{ '/assets/files/Rohit-Karmudi-Resume.pdf' | relative_url }}) — my current résumé.
 
-## Education
-
-- **Degree**, University Name, Year
-- **Certification**, Organization, Year
-
-## Experience
-
-### Company Name (Year - Year)
-**Position Title**
-- Accomplishment 1
-- Accomplishment 2
-- Accomplishment 3
-
-### Previous Company (Year - Year)
-**Position Title**
-- Accomplishment 1
-- Accomplishment 2
+You can find me on [GitHub](https://github.com/rohit196) and [LinkedIn](https://www.linkedin.com/in/rohit-karmudi/), or [get in touch]({{ '/contact/' | relative_url }}).
