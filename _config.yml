@@ -69,6 +69,11 @@ collections:
 
 # Defaults - applies settings to specific content types
 defaults:
+  # Google's ownership file must remain a static, unchanged file outside the sitemap.
+  - scope:
+      path: "google4f8f2038a1614832.html"
+    values:
+      sitemap: false
   # _posts (blog)
   - scope:
       path: ""
