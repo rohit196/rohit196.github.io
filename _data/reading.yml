@@ -1,0 +1,19 @@
+subjects:
+  - Fiction
+  - History
+  - Philosophy
+  - Psychology
+  - Business
+  - Technology
+  - Biographies
+ratings:
+  - score: 5
+    meaning: "A standout recommendation."
+  - score: 4
+    meaning: "Strongly recommended, with a few reservations."
+  - score: 3
+    meaning: "Worth considering if the subject interests you."
+  - score: 2
+    meaning: "Some useful ideas, but a limited recommendation."
+  - score: 1
+    meaning: "Not a book I would recommend."

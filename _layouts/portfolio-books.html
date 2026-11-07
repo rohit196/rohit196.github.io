@@ -1,0 +1,62 @@
+---
+layout: portfolio-base
+---
+{% assign library = site.books | sort: 'title' %}
+{% assign reading_now = library | where: 'status', 'reading' %}
+{% assign favourites = library | where: 'favourite', true %}
+<div class="reading-page" data-books-page>
+  <header class="page-intro">
+    <p class="eyebrow">The bookshelf</p>
+    <h1>Books &amp; reading notes.</h1>
+    <p class="page-description">{{ page.description | escape }}</p>
+    <nav class="page-jump-links" aria-label="Books page sections"><a href="#currently-reading">Currently reading</a><a href="#favourites">My favourites</a><a href="#bookshelf">Bookshelf</a><a href="#reading-archive">Archive</a></nav>
+  </header>
+
+  <div class="reading-selections">
+    <section class="selection-section" id="currently-reading" aria-labelledby="reading-heading">
+      <div class="reading-section-heading"><h2 id="reading-heading">Currently reading</h2><span class="quiet-count">{{ reading_now.size }}</span></div>
+      {% for book in reading_now limit:3 %}
+        <article class="featured-book"><a href="{{ book.url | relative_url }}" aria-label="Notes on {{ book.title | escape }}">{% include book-cover.html book=book %}</a><div><h3><a href="{{ book.url | relative_url }}">{{ book.title | escape }}</a></h3><p class="book-author">{{ book.book_author | escape }}</p>{% if book.reading_reason %}<p>{{ book.reading_reason | escape }}</p>{% endif %}</div></article>
+      {% else %}<div class="selection-empty"><p>My current reading list is coming soon.</p><span>Notes and ideas will find their way here as I read.</span></div>{% endfor %}
+    </section>
+    <section class="selection-section" id="favourites" aria-labelledby="favourites-heading">
+      <div class="reading-section-heading"><h2 id="favourites-heading">My favourites</h2><span class="quiet-count">{{ favourites.size }}</span></div>
+      {% for book in favourites limit:10 %}
+        <article class="featured-book"><a href="{{ book.url | relative_url }}" aria-label="Notes on {{ book.title | escape }}">{% include book-cover.html book=book %}</a><div><h3><a href="{{ book.url | relative_url }}">{{ book.title | escape }}</a></h3><p class="book-author">{{ book.book_author | escape }}</p><p>{{ book.favourite_reason | default: book.short_review | escape }}</p>{% include book-rating.html book=book %}</div></article>
+      {% else %}<div class="selection-empty"><p>A personal shortlist is coming soon.</p><span>Books I would recommend, and why they stayed with me.</span></div>{% endfor %}
+    </section>
+  </div>
+
+  <section class="bookshelf-section" id="bookshelf" aria-labelledby="bookshelf-heading">
+    <div class="reading-section-heading"><div><p class="eyebrow">Browse the collection</p><h2 id="bookshelf-heading">The bookshelf</h2></div><details class="rating-guide"><summary>How ratings work</summary><div><p>Recommendation scores are out of 5 and may include decimals.</p><dl>{% for rating in site.data.reading.ratings %}<dt>{{ rating.score }} / 5</dt><dd>{{ rating.meaning | escape }}</dd>{% endfor %}</dl></div></details></div>
+    <form class="book-filters" data-book-controls hidden role="search" aria-label="Search and filter books">
+      <div class="search-field"><label for="book-search">Search books</label><input id="book-search" name="q" type="search" placeholder="Search title or author" autocomplete="off"></div>
+      <div><label for="book-subject">Subject</label><select id="book-subject" name="subject"><option value="all">All subjects</option>{% for subject in site.data.reading.subjects %}<option value="{{ subject | escape }}">{{ subject | escape }}</option>{% endfor %}</select></div>
+      <div><label for="book-rating">Rating</label><select id="book-rating" name="rating"><option value="all">Any rating</option><option value="5">5 / 5</option><option value="4">4+ / 5</option><option value="3">3+ / 5</option><option value="unrated">Not rated</option></select></div>
+      <div><label for="book-sort">Sort by</label><select id="book-sort" name="sort"><option value="title">Title A–Z</option><option value="author">Author A–Z</option><option value="rating">Highest rated</option><option value="recent">Recently completed</option></select></div>
+    </form>
+    <noscript><p class="reading-note">All books are shown below. Search and filters are available with JavaScript enabled.</p></noscript>
+    <div class="bookshelf-toolbar" data-book-controls hidden>
+      <div class="shelf-tabs" role="group" aria-label="Reading status">
+        <button type="button" data-shelf="all" aria-pressed="true">All books <span data-shelf-count="all">{{ library.size }}</span></button>
+        <button type="button" data-shelf="read" aria-pressed="false">Read <span data-shelf-count="read">0</span></button>
+        <button type="button" data-shelf="reading" aria-pressed="false">Reading <span data-shelf-count="reading">0</span></button>
+        <button type="button" data-shelf="want-to-read" aria-pressed="false">Want to read <span data-shelf-count="want-to-read">0</span></button>
+      </div>
+      <button class="reset-filters" type="button" data-reset-filters>Reset filters</button>
+    </div>
+    <p class="results-count" id="book-results" role="status" aria-live="polite">{{ library.size }} books</p>
+    <div class="books-grid" data-books-grid>{% for book in library %}{% include book-card.html book=book %}{% endfor %}</div>
+    <div class="filter-empty" data-filter-empty hidden><h3>No books match these filters.</h3><p>Try another title, author, subject, or reading shelf.</p><button class="button button-outline" type="button" data-reset-filters>Show all books</button></div>
+  </section>
+
+  <section class="reading-archive" id="reading-archive" aria-labelledby="archive-heading">
+    <div class="reading-section-heading"><div><p class="eyebrow">A little history</p><h2 id="archive-heading">Reading archive</h2></div></div>
+    {% assign completed = library | where: 'status', 'read' | where_exp: 'book', 'book.finished_on != nil' | where_exp: 'book', 'book.finished_on != ""' | sort: 'finished_on' | reverse %}
+    {% assign years = completed | group_by_exp: 'book', 'book.finished_on | date: "%Y"' %}
+    {% for year in years %}<div class="archive-year"><h3>{{ year.name }}</h3><ul>{% for book in year.items %}<li><a href="{{ book.url | relative_url }}">{{ book.title | escape }}</a><span>{{ book.book_author | escape }}</span><time datetime="{{ book.finished_on }}">{{ book.finished_on | date: '%b %-d' }}</time></li>{% endfor %}</ul></div>{% else %}<p class="archive-empty">A year-by-year reading archive is coming soon.</p>{% endfor %}
+  </section>
+  <section class="reading-statistics" data-reading-statistics data-year="{{ site.time | date: '%Y' }}" aria-labelledby="statistics-heading" hidden><p class="eyebrow">In perspective</p><h2 id="statistics-heading">Reading at a glance</h2><dl><div><dt>Completed in {{ site.time | date: '%Y' }}</dt><dd data-stat-completed>0</dd></div><div><dt>Subjects explored</dt><dd data-stat-subjects>0</dd></div><div><dt>Authors among my favourites</dt><dd class="stat-authors" data-stat-authors>Not selected</dd></div></dl></section>
+  <p class="cover-credit">Cover images via <a href="https://openlibrary.org/">Open Library</a>.</p>
+  <div class="recommend-book"><p>Have a book in mind?</p><a class="text-link" href="mailto:rohitkarmudi1996@gmail.com?subject=Book%20recommendation">Recommend a book <span aria-hidden="true">↗</span></a></div>
+</div>

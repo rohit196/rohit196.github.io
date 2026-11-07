@@ -1,0 +1,5 @@
+{% if include.book.rating %}
+  <span class="book-rating" aria-label="Recommendation score: {{ include.book.rating }} out of 5"><span aria-hidden="true">★</span> <strong>{{ include.book.rating }}</strong><span>/ 5</span></span>
+{% else %}
+  <span class="book-unrated">Not rated</span>
+{% endif %}

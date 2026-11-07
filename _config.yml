@@ -69,7 +69,8 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: single
+      layout: portfolio-post
+      section: blog
       author_profile: true
       read_time: true
       comments: true
@@ -95,7 +96,8 @@ defaults:
       path: ""
       type: books
     values:
-      layout: single
+      layout: portfolio-book
+      section: books
       author_profile: true
       share: true
       read_time: false
@@ -120,10 +122,6 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-
-#Pagination
-paginate: 5 #Number of posts per page
-paginate_path: "/page:num/" #Pagination path
 
 #Add Necessary Plugins
 plugins:

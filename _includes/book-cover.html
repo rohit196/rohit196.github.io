@@ -1,0 +1,7 @@
+{% assign cover_book = include.book %}
+<div class="book-cover">
+  <div class="cover-fallback" aria-hidden="true"><span>{{ cover_book.title | escape }}</span><small>{{ cover_book.book_author | escape }}</small></div>
+  {% if cover_book.cover_image %}
+    <img src="{% if cover_book.cover_image contains '://' %}{{ cover_book.cover_image }}{% else %}{{ cover_book.cover_image | relative_url }}{% endif %}" alt="Cover of {{ cover_book.title | escape }}" loading="lazy" decoding="async" width="180" height="270" data-book-cover>
+  {% endif %}
+</div>

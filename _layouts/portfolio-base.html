@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | escape }} | {% if page.url == "/" %}Analytics &amp; practical tools{% else %}Rohit Karmudi{% endif %}</title>
+    <meta name="description" content="{{ page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | escape }}">
+    <meta name="theme-color" content="#fafafa">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ page.title | escape }}">
+    <meta property="og:description" content="{{ page.description | escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" href="{{ '/assets/images/monogram.svg' | relative_url }}?v={{ site.time | date: '%s' }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+    {% if page.section == 'books' or page.section == 'blog' %}
+      <link rel="stylesheet" href="{{ '/assets/css/reading.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+    {% endif %}
+    {% if page.section == 'books' %}
+      <script src="{{ '/assets/js/books.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+    {% endif %}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="{{ '/' | relative_url }}" aria-label="Rohit Karmudi, homepage">
+          <span class="brand-mark" aria-hidden="true">RK<span>.</span></span>
+          <span>Rohit Karmudi</span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+          {% for link in site.data.navigation.main %}
+            {% assign first_character = link.url | slice: 0 %}
+            {% assign current_link = false %}
+            {% if page.section == 'blog' and link.title == 'Blog' %}{% assign current_link = true %}{% endif %}
+            {% if page.section == 'books' and link.title == 'Books' %}{% assign current_link = true %}{% endif %}
+            <a class="{% if link.title == 'Contact' %}nav-contact {% endif %}{% if current_link %}nav-current{% endif %}"{% if current_link %} aria-current="page"{% endif %} href="{% if first_character == '/' %}{{ link.url | relative_url }}{% else %}{{ link.url }}{% endif %}">{{ link.title | escape }}</a>
+          {% endfor %}
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="shell">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer shell"><p>© {{ site.time | date: '%Y' }} Rohit Karmudi</p><a href="#main">Back to top <span aria-hidden="true">↑</span></a></footer>
+  </body>
+</html>

@@ -34,8 +34,59 @@ by Git. Existing tracked `_site/` files are left as they are.
 
 Homepage text, tools, and project links are editable in the YAML at the top of
 `index.md`. Its page structure is in `_layouts/portfolio-home.html`, and its
-responsive styling is in `assets/css/portfolio.css`. Blog and Books keep their
-existing theme layouts while the homepage design is reviewed.
+responsive styling is in `assets/css/portfolio.css`. All three pages share
+`_layouts/portfolio-base.html`. Blog, Books, and reading notes use
+`assets/css/reading.css` for their page-specific layouts.
+
+## Adding books and articles
+
+Copy `_templates/book.md` into `_books/your-book-title.md`. Keep the file's
+front matter at its very first line, fill the fields, and set `published: true`
+when it is ready. Write longer notes below the closing `---`.
+
+- `book_author`, `title`, and `subjects` power title/author search and subject filters.
+- Subjects are Fiction, History, Philosophy, Psychology, Business, Technology,
+  and Biographies; a book can have more than one.
+- Set `status` to `reading`, `read`, or `want-to-read` to place it on a shelf.
+  Leave it `null` to show notes without asserting a reading status.
+- `reading_reason` appears beside up to three currently reading books.
+- Set `favourite: true` and add `favourite_reason` for the personal shortlist.
+  The page supports up to ten favourites; aim for five to ten recommendations.
+- `rating` is a recommendation score from 1 to 5, with decimals supported.
+  Leave it `null` for an unrated book. The rating guide is in `_data/reading.yml`.
+- Add an honest `short_review` and three entries in `key_takeaways`.
+  The notes page displays the first three takeaways.
+- For the archive, set `status: read` and `finished_on: "YYYY-MM-DD"` using
+  the actual completion date. No completion year is inferred from publication.
+- Each optional `highlights` entry has `quote` and `interpretation` fields.
+  Keep quotations brief and explain what the passage means to you.
+- `cover_image` accepts a local path or image URL. For Open Library covers,
+  use `https://covers.openlibrary.org/b/isbn/YOURISBN-L.jpg?default=false`.
+  A title-and-author fallback is shown if a cover is missing or unavailable.
+- Optional `purchase_links` entries have `vendor` and `url` fields.
+
+For example, a reading selection can use:
+
+```yaml
+status: reading
+reading_reason: "Your reason for choosing this book."
+favourite: false
+rating: null
+key_takeaways: []
+highlights: []
+finished_on: null
+```
+
+Bookshelf filters can be shared or bookmarked through the URL. The page also
+works without JavaScript as a complete, unfiltered list. Recommendations use
+an email link that opens the visitor's email client; there is no submission backend.
+Reading statistics appear when books are explicitly marked as read or favourite.
+The yearly total uses completion dates, subjects use read books, and the author
+list is drawn from favourite books. No reading activity is inferred from ratings.
+
+Copy `_templates/post.md` to `_posts/YYYY-MM-DD-your-title.md` for an article.
+Set its title, excerpt, categories, and `published: true`, then write the article
+in Markdown. Demo book and Jekyll post files are retained with `published: false`.
 
 Use VS Code's Source Control view (Ctrl+Shift+G) to inspect saved edits before
 committing. Work on `portfolio-cleanup` while the redesign is in progress.

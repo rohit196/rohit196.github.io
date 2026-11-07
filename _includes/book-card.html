@@ -1,0 +1,14 @@
+{% assign card_book = include.book %}
+<article class="book-card" data-book-card data-search="{{ card_book.title | append: ' ' | append: card_book.book_author | escape }}" data-status="{{ card_book.status | default: 'unfiled' }}" data-subjects="{{ card_book.subjects | join: '|' | escape }}" data-rating="{{ card_book.rating }}" data-title="{{ card_book.title | escape }}" data-author="{{ card_book.book_author | escape }}" data-finished="{{ card_book.finished_on }}" data-favourite="{{ card_book.favourite | default: false }}">
+  <a class="book-card-art" href="{{ card_book.url | relative_url }}" aria-label="Read notes on {{ card_book.title | escape }}">{% include book-cover.html book=card_book %}</a>
+  <div class="book-card-body">
+    <div class="book-card-meta"><span>{{ card_book.subjects | first | escape }}</span>{% include book-rating.html book=card_book %}</div>
+    <h3><a href="{{ card_book.url | relative_url }}">{{ card_book.title | escape }}</a></h3>
+    <p class="book-author">{{ card_book.book_author | escape }}</p>
+    <p class="book-card-description">{{ card_book.short_review | default: card_book.excerpt | strip_html | truncate: 175 | escape }}</p>
+    <div class="book-card-bottom">
+      <span class="reading-status">{% case card_book.status %}{% when 'read' %}Read{% when 'reading' %}Currently reading{% when 'want-to-read' %}Want to read{% else %}Reading notes{% endcase %}</span>
+      <a class="text-link" href="{{ card_book.url | relative_url }}">Read notes <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</article>

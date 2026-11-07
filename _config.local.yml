@@ -1,6 +1,7 @@
 # Load after _config.yml. Use the installed theme without downloading it on each build.
 remote_theme: false
 theme: minimal-mistakes-jekyll
+repository: rohit196/rohit196.github.io
 url: "http://127.0.0.1:4000"
 baseurl: ""
 host: "127.0.0.1"

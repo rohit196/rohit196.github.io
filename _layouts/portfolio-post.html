@@ -1,0 +1,8 @@
+---
+layout: portfolio-base
+---
+<article class="reading-article">
+  <a class="back-link" href="{{ '/blog/' | relative_url }}">← Back to Blog</a>
+  <header class="article-heading"><p class="eyebrow">{{ page.categories | join: ' / ' | escape }}</p><h1>{{ page.title | escape }}</h1><p class="article-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time> · Rohit Karmudi</p></header>
+  <div class="prose">{{ content }}</div>
+</article>

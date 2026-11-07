@@ -1,36 +1,45 @@
 ---
-title: "Designing Data-Intensive Applications"
-book_author: "Martin Kleppmann"
-category: "Programming"
+title: Designing Data-Intensive Applications
+book_author: Martin Kleppmann
+category: Programming
 publication_year: 2017
-publisher: "O'Reilly Media"
+publisher: O'Reilly Media
 pages: 616
-isbn: "978-1449373320"
-cover_image: /assets/images/books/ddia.jpg
+isbn: 978-1449373320
+cover_image: https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg?default=false
 rating: 5.0
-layout: book
+layout: portfolio-book
 permalink: /books/designing-data-intensive-applications/
 tags:
-  - programming
-  - databases
-  - distributed-systems
-  - big-data
-excerpt: "A comprehensive guide to building large-scale data systems that combines theoretical foundations with practical wisdom."
+- programming
+- databases
+- distributed-systems
+- big-data
+excerpt: A comprehensive guide to building large-scale data systems that combines theoretical foundations with practical wisdom.
 purchase_links:
-  - vendor: "Amazon"
-    url: "https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321"
-  - vendor: "O'Reilly"
-    url: "https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/"
+- vendor: Amazon
+  url: https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321
+- vendor: O'Reilly
+  url: https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/
 key_takeaways:
-  - "Understanding fundamental data system tradeoffs (consistency vs. availability, latency vs. durability)"
-  - "Different database technologies serve different purposes — choosing the right tool requires understanding your specific requirements"
-  - "Data systems should be designed with evolution in mind, as requirements invariably change over time"
-  - "Distribution and replication introduce complex failure modes that must be carefully managed"
+- Understanding fundamental data system tradeoffs (consistency vs. availability, latency vs. durability)
+- Different database technologies serve different purposes — choosing the right tool requires understanding your specific requirements
+- Data systems should be designed with evolution in mind, as requirements invariably change over time
+- Distribution and replication introduce complex failure modes that must be carefully managed
 recommended_for:
-  - "Data engineers and system architects"
-  - "Backend developers working with distributed systems"
-  - "Anyone designing data pipelines or analytics infrastructure"
-  - "Technical managers overseeing data system implementations"
+- Data engineers and system architects
+- Backend developers working with distributed systems
+- Anyone designing data pipelines or analytics infrastructure
+- Technical managers overseeing data system implementations
+section: books
+subjects:
+- Technology
+status: null
+favourite: false
+favourite_reason: null
+reading_reason: null
+finished_on: null
+short_review: As an analytics developer, understanding the systems that generate, store, and process data is crucial for building robust analytics solutions. This book has been invaluable in helping me design more efficient data pipelines and make better architectural decisions.
 ---
 
 ## Why This Book Is Essential for Analytics Engineers

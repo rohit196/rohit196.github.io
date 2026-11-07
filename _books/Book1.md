@@ -1,4 +1,5 @@
 ---
+published: false
 title: "Book Title"
 excerpt: "Brief description of the book"
 header:
