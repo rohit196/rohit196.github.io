@@ -4,12 +4,11 @@ layout: portfolio-base
 
 <section class="hero" aria-labelledby="hero-heading">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>{{ page.hero.eyebrow | escape }}</p>
           <h1 id="hero-heading">{{ page.hero.heading | escape }}<br><span>{{ page.hero.emphasis | escape }}</span></h1>
           <p class="hero-introduction">{{ page.hero.introduction | escape }}</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#selected-projects">Explore projects <span aria-hidden="true">↘</span></a>
-            <a class="text-link" href="{{ '/assets/files/Rohit-Karmudi-Resume.pdf' | relative_url }}" download="Rohit-Karmudi-Resume.pdf" type="application/pdf">Download résumé (PDF) <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="{{ '/assets/files/Rohit-Karmudi-Resume.pdf' | relative_url }}" download="Rohit-Karmudi-Resume.pdf" type="application/pdf">Download résumé (PDF) <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#contact">Get in touch <span aria-hidden="true">↗</span></a>
           </div>
           <p class="location"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M15.5 8.2c0 4.2-5.5 8.2-5.5 8.2s-5.5-4-5.5-8.2a5.5 5.5 0 1 1 11 0Z"/><circle cx="10" cy="8" r="1.8"/></svg>{{ page.hero.location | escape }}</p>
         </div>
@@ -17,8 +16,10 @@ layout: portfolio-base
           <div class="toolkit-heading"><span class="small-label" id="toolkit-title">A practical toolkit</span></div>
           {% for tool in page.toolkit %}
             <div class="toolkit-row">
-              <span class="toolkit-symbol" aria-hidden="true">{{ tool.symbol | escape }}</span>
-              <div><h2>{{ tool.name | escape }}</h2><p>{{ tool.detail | escape }}</p></div>
+              <h2>{{ tool.name | escape }}</h2>
+              {% if tool.detail %}<p>{{ tool.detail | escape }}</p>{% endif %}
+              {% if tool.targets %}<p><strong>Learning targets</strong> · {{ tool.targets | escape }}</p>{% endif %}
+              {% if tool.link %}<a class="toolkit-link" href="{{ tool.link | escape }}">{{ tool.link_label | escape }}</a>{% endif %}
             </div>
           {% endfor %}
         </aside>
@@ -32,7 +33,7 @@ layout: portfolio-base
         <div class="project-grid">
           {% assign projects = site.projects | sort: 'order' %}
           {% for project in projects %}
-            <article class="project-card">
+            <article class="project-card" id="{{ project.slug | escape }}">
               <div class="project-art project-art-{{ project.visual }}" aria-hidden="true">
                 {% if project.visual == 'sentiment' %}
                   <div class="sentiment-visual">
@@ -61,7 +62,7 @@ layout: portfolio-base
         </div>
       </section>
 
-      <section class="learning-section" aria-labelledby="learning-heading">
+      <section class="learning-section" id="sql-learning" aria-labelledby="learning-heading">
         <div class="learning-mark" aria-hidden="true">SQL</div>
         <div class="learning-copy"><p class="eyebrow">Learning in the open</p><h2 id="learning-heading">{{ page.learning.title | escape }}</h2><p>{{ page.learning.description | escape }}</p></div>
         <a class="button button-outline" href="{{ page.learning.url }}">Explore the hub <span aria-hidden="true">↗</span></a>

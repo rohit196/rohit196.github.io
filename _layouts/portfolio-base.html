@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include portfolio-seo.html %}
     <meta name="theme-color" content="#fafafa">
+    <script>
+      (() => {
+        const preference = window.matchMedia('(prefers-color-scheme: dark)');
+        let choice;
+        try { choice = localStorage.getItem('portfolio-theme'); } catch {}
+
+        function applyTheme() {
+          const dark = choice === 'dark' || (choice !== 'light' && preference.matches);
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          document.querySelector('meta[name="theme-color"]').content = dark ? '#16181c' : '#fafafa';
+          document.getElementById('theme-toggle')?.setAttribute('aria-pressed', String(dark));
+        }
+
+        applyTheme();
+        preference.addEventListener('change', applyTheme);
+        document.addEventListener('DOMContentLoaded', () => {
+          const toggle = document.getElementById('theme-toggle');
+          applyTheme();
+          toggle.hidden = false;
+          toggle.addEventListener('click', () => {
+            choice = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            try { localStorage.setItem('portfolio-theme', choice); } catch {}
+            applyTheme();
+          });
+        });
+      })();
+    </script>
     <link rel="icon" href="{{ '/assets/images/monogram.svg' | relative_url }}?v={{ site.time | date: '%s' }}" type="image/svg+xml">
     <link rel="stylesheet" href="{{ '/assets/css/portfolio.css' | relative_url }}?v={{ site.time | date: '%s' }}">
     {% if page.section == 'books' or page.section == 'blog' %}
@@ -19,20 +46,42 @@
     <header class="site-header">
       <div class="shell header-inner">
         <a class="brand" href="{{ '/' | relative_url }}" aria-label="Rohit Karmudi, homepage">
-          <span class="brand-mark" aria-hidden="true">RK<span>.</span></span>
+          <img class="brand-mark" src="{{ '/assets/images/github-avatar.png' | relative_url }}" width="48" height="48" alt="">
           <span>Rohit Karmudi</span>
         </a>
-        <nav class="site-nav" aria-label="Main navigation">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" hidden><span aria-hidden="true">☾</span><span aria-hidden="true">☀</span></button>
+        <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" hidden>Menu<span aria-hidden="true"></span></button>
+        <nav class="site-nav" id="site-nav" aria-label="Main navigation">
           {% for link in site.data.navigation.main %}
             {% assign first_character = link.url | slice: 0 %}
             {% assign current_link = false %}
             {% if page.section == 'blog' and link.title == 'Blog' %}{% assign current_link = true %}{% endif %}
             {% if page.section == 'books' and link.title == 'Books' %}{% assign current_link = true %}{% endif %}
-            <a class="{% if link.title == 'Contact' %}nav-contact {% endif %}{% if current_link %}nav-current{% endif %}"{% if current_link %} aria-current="page"{% endif %}{% if link.format == 'pdf' %} type="application/pdf" aria-label="{{ link.title | escape }} (PDF)"{% endif %} href="{% if first_character == '/' %}{{ link.url | relative_url }}{% else %}{{ link.url }}{% endif %}">{{ link.title | escape }}</a>
+            <a class="{% if link.title == 'Contact' %}nav-contact{% elsif first_character != '/' %}nav-external{% endif %}"{% if current_link %} aria-current="page"{% endif %}{% if link.format == 'pdf' %} type="application/pdf" aria-label="{{ link.title | escape }} (PDF)"{% endif %} href="{% if first_character == '/' %}{{ link.url | relative_url }}{% else %}{{ link.url }}{% endif %}">{{ link.title | escape }}{% if first_character != '/' %}<span aria-hidden="true">↗</span>{% endif %}</a>
           {% endfor %}
         </nav>
       </div>
     </header>
+    <script>
+      const navToggle = document.querySelector('.nav-toggle');
+      const siteNav = document.getElementById('site-nav');
+      navToggle.hidden = false;
+      navToggle.addEventListener('click', () => {
+        navToggle.setAttribute('aria-expanded', navToggle.getAttribute('aria-expanded') === 'false');
+      });
+      document.querySelector('.header-inner').addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navToggle.offsetWidth && navToggle.getAttribute('aria-expanded') === 'true') {
+          navToggle.focus();
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      siteNav.addEventListener('click', (event) => {
+        if (navToggle.offsetWidth && event.target.closest('a')) {
+          navToggle.focus();
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    </script>
 
     <main id="main" class="shell">
       {{ content }}
