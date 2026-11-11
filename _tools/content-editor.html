@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio content editor</title>
+<style>
+body{font:16px/1.6 system-ui,sans-serif;color:#202b36;background:#f5f6f8;margin:0}main{max-width:760px;margin:40px auto;padding:28px;background:white;border-radius:16px}label{display:block;margin:18px 0 5px;font-weight:600}input,select,textarea,button{font:inherit;box-sizing:border-box;width:100%;padding:10px;border:1px solid #aeb7c0;border-radius:6px}textarea{min-height:110px}button{margin-top:20px;background:#174b71;color:white;cursor:pointer}small{display:block;color:#526170}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f6f8;padding:16px}fieldset{border:0;padding:0;margin:0}[hidden]{display:none!important}@media(max-width:800px){main{margin:16px;padding:20px}}
+</style>
+<main>
+<h1>Add website content</h1>
+<p>Fill in the form, preview the file, and download it. Save it in the folder shown below, then preview and commit your changes to publish. This form works locally and does not send your content anywhere.</p>
+<form id="editor">
+<label for="kind">Content type</label><select id="kind"><option value="book">Book</option><option value="project">Project</option><option value="post">Blog post</option></select>
+<label for="title">Title</label><input id="title" required>
+<label for="slug">Filename (optional)</label><input id="slug" placeholder="Generated from title"><small>Use a short, descriptive name. Existing files are not edited by this form.</small>
+<label for="description">Short description or review</label><textarea id="description" required></textarea>
+<fieldset data-kind="book">
+<label for="author">Book author</label><input id="author">
+<label for="subjects">Subjects (comma separated)</label><input id="subjects" placeholder="Technology, Business"><small>Fiction, History, Philosophy, Psychology, Business, Technology, Biographies.</small>
+<label for="cover">Cover image URL or local path (optional)</label><input id="cover">
+<label for="status">Reading status</label><select id="status"><option value="">Not assigned</option><option value="reading">Currently reading</option><option value="read">Read</option><option value="want-to-read">Want to read</option></select>
+<label for="rating">Rating (optional, 1–5)</label><input id="rating" type="number" min="1" max="5" step="0.1">
+<label for="finished">Completion date (optional)</label><input id="finished" type="date">
+<label for="takeaways">Key takeaways (one per line, up to three)</label><textarea id="takeaways"></textarea>
+</fieldset>
+<fieldset data-kind="project" hidden>
+<label for="category">Category</label><input id="category" value="Data analysis">
+<label for="tools">Tools (comma separated)</label><input id="tools" placeholder="Python, SQL">
+<label for="url">Repository or demo URL</label><input id="url" type="url">
+<label for="visual">Card illustration</label><select id="visual"><option value="sentiment">Sentiment analysis</option><option value="documents">Document automation</option></select>
+<label for="order">Display order (smaller numbers first)</label><input id="order" type="number" min="1" value="3">
+</fieldset>
+<fieldset data-kind="post" hidden>
+<label for="date">Publication date</label><input id="date" type="date">
+<label for="categories">Categories (comma separated)</label><input id="categories">
+<label for="tags">Tags (comma separated)</label><input id="tags">
+</fieldset>
+<label for="body">Main content (Markdown)</label><textarea id="body" rows="10" placeholder="Write your article, reading notes, or project case study here."></textarea>
+<label for="published">Publication status</label><select id="published"><option value="false">Draft (hidden from normal builds)</option><option value="true">Published</option></select>
+<button type="submit">Download Markdown file</button>
+</form>
+<p id="destination" aria-live="polite"></p>
+<details><summary>Preview generated file</summary><pre id="preview"></pre></details>
+<p>To edit existing content, open its Markdown file in <code>_books/</code>, <code>_projects/</code>, or <code>_posts/</code>. The download creates a new file; check filenames before replacing anything.</p>
+</main>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const value = id => $(id).value.trim();
+const quoted = text => JSON.stringify(text);
+const list = id => value(id).split(',').map(s => s.trim()).filter(Boolean);
+const slugify = text => text.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const now = new Date();
+$('date').value = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+function generate(){
+ const kind=value('kind');
+ document.querySelectorAll('[data-kind]').forEach(group=>{group.hidden=group.dataset.kind!==kind;group.disabled=group.hidden;});
+ $('author').required=kind==='book';$('url').required=kind==='project';$('date').required=kind==='post';
+ const data={published:value('published')==='true',layout:kind==='post'?'portfolio-post':`portfolio-${kind}`,title:value('title'),description:value('description')};
+ if(kind==='book')Object.assign(data,{section:'books',book_author:value('author'),cover_image:value('cover')||null,subjects:list('subjects'),status:value('status')||null,rating:value('rating')?Number(value('rating')):null,short_review:value('description'),finished_on:value('finished')||null,favourite:false,key_takeaways:value('takeaways').split('\n').map(s=>s.trim()).filter(Boolean).slice(0,3),highlights:[],purchase_links:[]});
+ if(kind==='project')Object.assign(data,{category:value('category'),visual:value('visual'),tools:list('tools'),project_url:value('url'),link_label:'View project',order:Number(value('order'))||3});
+ if(kind==='post')Object.assign(data,{section:'blog',excerpt:value('description'),categories:list('categories'),tags:list('tags')});
+ const slug=slugify(value('slug')||value('title'))||'untitled';
+ const filename=(kind==='post'?value('date')+'-':'')+slug+'.md';
+ const folder={book:'_books',project:'_projects',post:'_posts'}[kind];
+ const content='---\n'+Object.entries(data).map(([key,val])=>key+': '+quoted(val)).join('\n')+'\n---\n\n'+value('body')+'\n';
+ $('preview').textContent=content;$('destination').textContent=`Save as ${folder}/${filename}`;
+ return {filename,content};
+}
+$('editor').addEventListener('input',generate);$('editor').addEventListener('change',generate);
+$('editor').addEventListener('submit',event=>{event.preventDefault();const {filename,content}=generate();const url=URL.createObjectURL(new Blob([content],{type:'text/markdown;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download=filename;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+generate();
+</script>
+</html>

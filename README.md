@@ -32,8 +32,8 @@ by Git. Existing tracked `_site/` files are left as they are.
 
 ## Reviewing changes
 
-Homepage text, tools, and project links are editable in the YAML at the top of
-`index.md`. Its page structure is in `_layouts/portfolio-home.html`, and its
+Homepage text and tools are editable in the YAML at the top of
+`index.md`. Project cards are loaded from `_projects/`. Its page structure is in `_layouts/portfolio-home.html`, and its
 responsive styling is in `assets/css/portfolio.css`. All three pages share
 `_layouts/portfolio-base.html`. Blog, Books, and reading notes use
 `assets/css/reading.css` for their page-specific layouts.
@@ -44,6 +44,31 @@ The menu opens `assets/files/Rohit-Karmudi-Resume.pdf` in the browser, and the
 homepage's **Download résumé (PDF)** link downloads the same file. The supplied
 PDF is stored unchanged under this stable filename. To update it later, replace
 that PDF and keep its filename; both links will continue to work.
+
+## Add content with a form
+
+Open `_tools/content-editor.html` in your browser (double-click the file in your
+file manager). No server, account, or installation is required. Choose Book,
+Project, or Blog post, fill in the form, and download the Markdown file.
+The form shows the destination folder:
+
+- Books: `_books/`
+- Projects: `_projects/`
+- Blog posts: `_posts/`
+
+Move the downloaded file from Downloads into that folder. New content defaults
+to Draft; choose Published when ready for it to appear in normal builds.
+Preview the site, then commit and push to the GitHub Pages publishing branch.
+Downloading a file does not publish it. To edit existing content, edit its
+Markdown file directly; the form creates new files and does not load existing ones.
+The local editor is excluded from Jekyll output by its underscore directory name.
+
+Projects now live in individual `_projects/*.md` files; adding a project there
+adds it to the homepage without editing `index.md`. The `order` field controls
+card order. `project_url` points to a repository or demo. Optional longer case
+studies are rendered at `/projects/<filename>/`. To link a homepage card to its
+case study, set `project_url` to that path. For manual authoring, copy
+`_templates/project.md` and set `published: true` when ready.
 
 ## Adding books and articles
 

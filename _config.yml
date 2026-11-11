@@ -59,6 +59,9 @@ footer:
 
 #collections
 collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
   portfolio:
     output: true
     permalink: /portfolio/:path/

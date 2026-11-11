@@ -1,0 +1,7 @@
+---
+layout: portfolio-page
+---
+<p>{{ page.description | escape }}</p>
+{% if page.tools.size > 0 %}<p><strong>Tools:</strong> {{ page.tools | join: ', ' | escape }}</p>{% endif %}
+{{ content }}
+{% if page.project_url %}<p><a href="{{ page.project_url | escape }}">{{ page.link_label | default: 'View project' | escape }} ↗</a></p>{% endif %}

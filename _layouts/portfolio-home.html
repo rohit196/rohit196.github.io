@@ -30,7 +30,8 @@ layout: portfolio-base
           <a class="text-link section-link" href="https://github.com/rohit196">View GitHub <span aria-hidden="true">↗</span></a>
         </div>
         <div class="project-grid">
-          {% for project in page.projects %}
+          {% assign projects = site.projects | sort: 'order' %}
+          {% for project in projects %}
             <article class="project-card">
               <div class="project-art project-art-{{ project.visual }}" aria-hidden="true">
                 {% if project.visual == 'sentiment' %}
@@ -53,7 +54,7 @@ layout: portfolio-base
                 <ul class="tool-tags" aria-label="Tools used">
                   {% for tool in project.tools %}<li>{{ tool | escape }}</li>{% endfor %}
                 </ul>
-                <a class="project-link" href="{{ project.url }}" aria-label="View notebook: {{ project.title | escape }}">View notebook <span aria-hidden="true">↗</span></a>
+                <a class="project-link" href="{{ project.project_url | escape }}" aria-label="View project: {{ project.title | escape }}">{{ project.link_label | default: "View project" | escape }} <span aria-hidden="true">↗</span></a>
               </div>
             </article>
           {% endfor %}
