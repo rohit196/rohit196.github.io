@@ -1,13 +1,14 @@
 ---
 layout: portfolio-home
 title: "Rohit Karmudi"
-seo_title: "Rohit Karmudi | Python, SQL & Analytics Projects"
+seo_title: "Rohit Karmudi | Python, SQL & Data Analytics Portfolio"
 permalink: /
-description: "Python, SQL and text analytics projects by Rohit Karmudi, based in Toronto. Explore practical tools, articles and reading notes."
+description: "Explore Rohit Karmudi's data analytics portfolio: Python, SQL, sentiment analysis and automation projects. Research analyst based in Toronto, Canada."
 hero:
-  heading: "Turning raw data into useful insights"
-  emphasis: "and repeatable workflows."
-  introduction: "I use Python and SQL to clean and explore data, analyze text, and automate repetitive tasks. I’m expanding that work into data pipelines, cloud computing, and applied AI."
+  role: "Research Analyst · Analytics Developer"
+  heading: "Rohit Karmudi"
+  emphasis: "Python, SQL & data analytics."
+  introduction: "I’m a research analyst and analytics developer based in Toronto, Canada. I use Python and SQL to explore data, analyze text, and automate repetitive tasks. Here I share my projects, SQL learning notes, and articles on data analysis."
   location: "Based in Toronto, Canada."
 toolkit:
   - name: "Data Engineering"

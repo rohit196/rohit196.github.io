@@ -11,7 +11,7 @@ My selected projects include comparing sentiment classifications on hotel review
 
 ## Explore my work
 
-- [Selected projects]({{ '/#projects' | relative_url }}) — Python notebooks, text analytics and practical automation.
+- [Selected projects]({{ '/#selected-projects' | relative_url }}) — Python notebooks, text analytics and practical automation.
 - [Blog]({{ '/blog/' | relative_url }}) — articles and notes about data analysis.
 - [Books]({{ '/books/' | relative_url }}) — reading notes and ideas worth remembering.
 - [Résumé (PDF)]({{ '/assets/files/Rohit-Karmudi-Resume.pdf' | relative_url }}) — my current résumé.
